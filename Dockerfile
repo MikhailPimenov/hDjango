@@ -1,14 +1,12 @@
-# this file is outside the git repository, that is why it is .txt
-
 FROM python:3.7-alpine
 ENV PYTHONUNBUFFERED=1
-ADD ./hDjango/requirements.txt /tmp/requirements.txt
+ADD requirements.txt /tmp/requirements.txt
 RUN apk add --no-cache --virtual .build-deps \
     ca-certificates gcc postgresql-dev linux-headers musl-dev \
     libffi-dev jpeg-dev zlib-dev \
     && pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 
-ADD ./hDjango /opt/hDjango
+ADD . /opt/hDjango
 WORKDIR /opt/hDjango
 
 # Run the image as a non-root user

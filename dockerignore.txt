@@ -1,6 +1,0 @@
-# this file is outside the git repository, that is why it is .txt
-
-.git/
-venv/
-data/
-.idea/
